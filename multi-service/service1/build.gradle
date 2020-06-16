@@ -13,5 +13,6 @@ dependencies {
 appengine {
   run {
     services = [projectAsService(project), projectAsService(":service2")]
+    jvmFlags = ['-Dcom.google.appengine.devappserver_module.service2.port=8082']
   }
 }

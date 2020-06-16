@@ -8,6 +8,15 @@
         <servlet-name>MyServlet</servlet-name>
         <url-pattern>/test</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GuestReaderServlet</servlet-name>
+        <servlet-class>com.loosebazooka.test.GuestReaderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GuestReaderServlet</servlet-name>
+        <url-pattern>/guest</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>

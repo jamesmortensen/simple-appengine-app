@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script>
+
+    function makePostRequest() {
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function(res) {
+           if(xhr.status === 200 && xhr.readyState == 4) {
+              console.log(res);
+              console.log(xhr);
+              console.log(xhr.responseText);
+           }
+        }
+
+
+
+        xhr.open("POST", '/guest');
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send('name=James&content=HelloWorld');
+    }
+
+    window.addEventListener('load', function() {
+        makePostRequest();
+    }, false);
+    </script>
+</head>
+<body>
+</body>
+</html>
