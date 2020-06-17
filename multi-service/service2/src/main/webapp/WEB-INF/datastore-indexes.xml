@@ -4,4 +4,7 @@
         <property name="testField" direction="asc" />
         <property name="testField2" direction="desc" />
     </datastore-index>
+    <datastore-index kind="Greeting" ancestor="true" source="manual">
+        <property name="date" direction="desc"/>
+    </datastore-index>
 </datastore-indexes>

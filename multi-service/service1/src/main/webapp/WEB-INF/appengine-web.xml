@@ -2,7 +2,7 @@
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
   <application>multi-service-projectId</application><!-- overriden in buildfiles -->
   <version>multi-service-version</version><!-- overriden in buildfiles -->
-  <service>service1</service>
+  <service>default</service>
 
   <!-- java 8 options -->
   <runtime>java8</runtime>
