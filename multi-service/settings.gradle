@@ -1,3 +1,3 @@
 include "service1", "service2"
-include 'JDO-service'
+//include 'JDO-service'
 
