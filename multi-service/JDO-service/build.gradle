@@ -28,5 +28,53 @@ dependencies {
     // https://mvnrepository.com/artifact/org.datanucleus/datanucleus-enhancer
     compile group: 'org.datanucleus', name: 'datanucleus-enhancer', version: '3.1.1'
 
+    // https://mvnrepository.com/artifact/net.sf.jsr107cache/jsr107cache
+    compile group: 'net.sf.jsr107cache', name: 'jsr107cache', version: '1.1'
+
+    // https://mvnrepository.com/artifact/com.google.appengine/appengine-jsr107cache
+    compile group: 'com.google.appengine', name: 'appengine-jsr107cache', version: '1.9.70'
+
+    // https://mvnrepository.com/artifact/org.ow2.asm/asm
+    compile group: 'org.ow2.asm', name: 'asm', version: '5.0.4'
+
 }
+
+
+task datanucleusEnhance {
+
+    description "Enhance JPA model classes using DataNucleus Enhancer"
+    dependsOn compileJava
+
+    doLast {
+        // define the entity classes
+        def entityFiles = fileTree(sourceSets.main.output.classesDir).matching {
+            include 'com/sample/*.class'
+        }
+
+        println "Enhancing with DataNucleus the following files"
+        entityFiles.getFiles().each {
+            println it
+        }
+
+        // define Ant task for DataNucleus Enhancer
+        ant.taskdef(
+                name : 'datanucleusenhancer',
+                classpath : sourceSets.main.runtimeClasspath.asPath,
+                //classname : 'org.datanucleus.enhancer.EnhancerTask'
+                // the below is for DataNucleus Enhancer 3.1.1
+                classname : 'org.datanucleus.enhancer.tools.EnhancerTask'
+        )
+
+        // run the DataNucleus Enhancer as an Ant task
+        ant.datanucleusenhancer(
+                classpath: sourceSets.main.runtimeClasspath.asPath,
+                verbose: true,
+                api: "JDO") {
+            entityFiles.addToAntBuilder(ant, 'fileset', FileCollection.AntType.FileSet)
+        }
+    }
+}
+
+classes.dependsOn(datanucleusEnhance)
+
 

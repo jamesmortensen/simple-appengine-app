@@ -10,6 +10,25 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ConsultantServlet</servlet-name>
+        <servlet-class>com.loosebazooka.test.ConsultantServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConsultantServlet</servlet-name>
+        <url-pattern>/consultant</url-pattern>
+    </servlet-mapping>
+
+    <!-- JDO-service -->
+    <servlet>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <servlet-class>com.sample.EmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/employee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>GuestReaderServlet</servlet-name>
         <servlet-class>com.loosebazooka.test.GuestReaderServlet</servlet-class>
     </servlet>

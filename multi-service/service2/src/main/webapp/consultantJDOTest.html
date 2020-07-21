@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script>
+
+    function makePostRequest(requestPath, port) {
+        requestPath = requestPath === undefined ? '/employee' : requestPath;
+        port = port === undefined ? 8080 : port;
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function(res) {
+           if(xhr.status === 200 && xhr.readyState == 4) {
+              console.log(res);
+              console.log(xhr);
+              console.log(xhr.responseText);
+           }
+        }
+
+
+
+        xhr.open("POST", requestPath);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send('name=James');
+    }
+
+    window.addEventListener('load', function() {
+        makePostRequest('/employee');
+        //makePostRequest('/employer');
+        makePostRequest('/consultant');
+    }, false);
+    </script>
+</head>
+</html>
