@@ -13,9 +13,9 @@ $ ./gradlew appengineDeploy
 
 Maven
 ```
-$ ./mvnw package appengineRun
+$ ./mvnw package appengine:run
 ```
 - Deploy
 ```
-$ ./mvnw package appengineDeploy
+$ ./mvnw package appengine:deploy
 ```
